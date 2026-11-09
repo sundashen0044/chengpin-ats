@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.db
+backend/.env
+backend/uploads/
+.venv/
+
+# Node
+node_modules/
+.npm-cache/
+npm-cache/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./backend
+    container_name: chengpin-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - DATABASE_URL=sqlite:////app/data/smartscreener.db
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - db-data:/app/data
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: chengpin-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  db-data:
